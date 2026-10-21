@@ -80,7 +80,7 @@ export function GoogleLoginPanel() {
     );
   }
 
-  const name = (user.user_metadata?.full_name as string) || (user.user_metadata?.name as string) || "";
+  const name = (user.user_metadata?.["full_name"] as string) || (user.user_metadata?.["name"] as string) || "";
 
   return (
     <div className="flex flex-col gap-10">
