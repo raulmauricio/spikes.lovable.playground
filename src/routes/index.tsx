@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { GoogleLoginPanel } from "@/components/GoogleLoginPanel";
 
 const SECTIONS = [
   { id: "prompts", label: "Prompts" },
@@ -52,12 +53,14 @@ function Section({ id, title, active }: { id: string; title: string; active: boo
       id={id}
       role="tabpanel"
       aria-hidden={!active}
-      className="flex h-full w-full shrink-0 flex-col px-6 pt-10 sm:px-12"
+      className="flex h-full w-full shrink-0 flex-col overflow-y-auto px-6 pt-10 sm:px-12"
     >
       <h1 className="text-center text-3xl font-light tracking-tight text-foreground sm:text-5xl">
         {title}
       </h1>
-      <div className="mx-auto mt-10 w-full max-w-4xl flex-1" />
+      <div className="mx-auto mt-10 w-full max-w-4xl flex-1">
+        {id === "google-login" && <GoogleLoginPanel />}
+      </div>
     </section>
   );
 }
